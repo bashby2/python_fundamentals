@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing_page.css')}}">
+    <title>The Dojo</title>
+  </head>
+  <body>
+    <form class="questions" action="/users" method="post">
+      <p>What do you think of this Dojo?</p>
+      <input type="text" name="dojo" value="Do you like it?">
+      <p> Do you think you could be a ninja if you lived in this Dojo?</p>
+      <input type="text" name="dojo_living" value="If you follow someone else, you are ignoring your own path.">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

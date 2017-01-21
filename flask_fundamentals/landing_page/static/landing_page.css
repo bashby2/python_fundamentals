@@ -1,0 +1,14 @@
+.color {
+  color: blue;
+}
+p {
+  color: red;
+  font-weight: bold;
+}
+h1 {
+  font-weight: bold;
+  color: green;
+}
+img {
+  width: 400px;
+}
