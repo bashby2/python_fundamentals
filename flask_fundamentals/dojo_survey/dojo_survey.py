@@ -4,15 +4,16 @@ app = Flask(__name__)
 @app.route('/')
 def index():
   return render_template("index.html")
-# this route will handle our form submission
-# notice how we defined which HTTP methods are allowed by this route
+
 @app.route('/users', methods=['POST'])
 def create_user():
-   print "Got Post Info"
-   # we'll talk about the following two lines after we learn a little more
-   # about forms
-   name = request.form['name']
-   email = request.form['email']
-   # redirects back to the '/' route
-   return redirect('/')
+    print "Got Post Info"
+    print request.form
+    form_results = {
+        'name': request.form['name'],
+        'location': request.form['location'],
+        'language': request.form['language'],
+        'comment': request.form['comment']
+    }
+    return render_template("redirect_page.html", results=form_results)
 app.run(debug=True) # run our server
