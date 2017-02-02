@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Great Numbers Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='ninja_money.css') }}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <p>Your gold </p>
+      {{ session['total_gold'] }}
+
+      <form action="/makeGold" method="post" id="farmForm">
+        <input type="hidden" name="generate" value="farm">
+      </form>
+      <form action="/makeGold" method="post" id="caveForm">
+        <input type="hidden" name="generate" value="cave">
+      </form>
+      <form action="/makeGold" method="post" id="houseForm">
+        <input type="hidden" name="generate" value="house">
+      </form>
+      <form action="/makeGold" method="post" id="casinoForm">
+        <input type="hidden" name="generate" value="casino">
+      </form>
+      <form action="/reset" method="post" id="resetForm">
+        <input type="hidden" name="generate" value="reset">
+      </form>
+
+      <div class="buttons">
+        <button type="submit" value="farm" form="farmForm"><h2>Farm</h2><br><p>(earns 10-20 gold)<p><br><h3>Find Gold!</h3> </button>
+        <button type="submit" value="cave" form="caveForm"><h2>Cave</h2><br><p>(earns 5-10 gold)<p><br><h3>Find Gold!</h3></button>
+        <button type="submit" value="house" form="houseForm"><h2>House</h2><br><p>(earns 2-5 gold)<p><br><h3>Find Gold!</h3></button>
+        <button type="submit" value="casino" form="casinoForm"><h2>Casino</h2><br><p>(earns/takes 10-50 gold)<p><br><h3>Find Gold!</h3></button>
+        <button type="submit" value="reset" form="resetForm"><h1>Reset</h1></button>
+      </div><!--closing buttons div-->
+
+      <p>Activities</p>
+      {% for activities in session['activities'] %}
+        <p>{{ activities }}</p>
+      {% endfor %}
+
+    </div><!-- closing wrapper div-->
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='great_number.css')}}">
+    <title>Great Number Game!</title>
+  </head>
+  <body>
+    <h1>Welcome to the great number game!</h1>
+    <p>I am thinking of a number from 1 to 100</p>
+    <p>Take a guess</p>
+    <form action="/users" method="post">
+      <input type="number" name="quantity" min="1" max="100">
+      <input type='submit' value='Submit'><br>
+    </form>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Great Numbers Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='great_number.css') }}">
+  </head>
+  <body>
+    <div class="wrapper">
+
+
+      <h2>Welcome to the Great Number Game!</h2>
+      <p>I have generated a random number between 1 and 100</p>
+      <p>Take a guess!</p>
+      {% if 'message' in session and 'winner' not in session %}
+        <div class="message">
+          <p>{{ session['message']|safe }}</p>
+        </div>
+      {% endif %}
+
+      {% if 'winner' not in session %}
+        <form action="/guess" method="post">
+          <input type="hidden" name="user_input" value="user_input">
+          <input type="text" name="guess">
+          <input type="submit" name="submit" value="Submit">
+        </form>
+      {% else %}
+        <div class="winner">
+          <p>{{ session['rand_num'] }} is correct!! You Win!!</p>
+          <form action="/guess" method="post">
+            <input type="hidden" name="play_again" value="True">
+            <input type="text" name="user_number">
+            <input id="play_again" type="submit" name="submit" value="Play Again!">
+          </form>
+        </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
