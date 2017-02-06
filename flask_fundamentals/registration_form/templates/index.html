@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <titl>Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='registration_form.css') }}">
+  </head>
+  <body>
+    <form action="/users" method="post">
+      Email: <input type='text' name='email' placeholder='Johnny@gmail.com'><br>
+      First Name: <input type='text' name='first_name' placeholder='John'><br>
+      Last Name: <input type='text' name='last_name' placeholder='Snow'><br>
+      Password: <input type='text' name='password' placeholder='42someThingSecret'><br>
+      Confirm Password: <input type='text' name='confirm_password' placeholder='42someThingSecret'><br>
+      <input type='submit' value='Submit'>
+    </form>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <p>{{message}}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+  </body>
+</html>
