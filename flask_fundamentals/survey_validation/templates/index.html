@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Survey with validation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='survey_validation.css') }}">
+  </head>
+  <body>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form action="/users" method="post">
+      Name: <input type='text' name='name' placeholder='John Snow'><br>
+      Dojo Location:
+       <select name="location">
+          <option value="work">Work</option>
+          <option value="home">Home</option>
+          <option value="library">Library</option>
+          <option value="bowling">Bowling Alley</option>
+        </select><br>
+      Favorite Language:
+        <select name="language">
+           <option value="python">Python</option>
+           <option value="c++">C++</option>
+           <option value="cantonese">Cantonese</option>
+           <option value="java">Java</option>
+        </select><br>
+      Comments (optional):<br>
+        <textarea name='comment' rows= '15' cols='30' placeholder='Comments'></textarea>
+      <input type='submit' value='Submit'>
+    </form>
+  </body>
+</html>
