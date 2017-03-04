@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Results!</title>
+  </head>
+  <body>
+    <div class="info">
+      <h1>Submitted Info</h1>
+      <h2>Name:        {{request.session.name}}</h2>
+      <h2>Dojo Location:     {{request.session.location}}</h2>
+      <h2>Favorite Language:    {{request.session.language}}</h2>
+      <p>Comment:     {{request.session.comment}}</p>
+      <a href="/" class="button">Go Back</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Thank You for Submitting your email</title>
+  </head>
+  <body>
+    <h2>The email address you entered, {{ request.session.email }} is a valid email. Thank you.</h2>
+    <h1>Email address' entered:</h1>
+    {% for email in emails %}
+      {{ email.email }}
+    {% endfor %}
+    {{ email }}
+  </body>
+</html>

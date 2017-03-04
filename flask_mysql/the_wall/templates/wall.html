@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome To The Wall</title>
+  </head>
+  <body>
+    <div class="header">
+      <h2>CodingDojo Wall<h2>
+        <p>Welcome {{ session['first_name'] }}</p>
+        <a href="/logout">Log off</a>
+    <h3>Post a message</h3>
+    <form class="" action="/post_message" method="post">
+      <textarea name='comment'></textarea><br>
+      <input type="submit" name="submit" value="Post a message">
+    </form>
+  </body>
+</html>

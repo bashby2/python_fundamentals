@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <h2>Email Address</h2>
+  <form action='/process' method='POST'>
+    <input type="text" name="email" placeholder="John Snow"></label>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
